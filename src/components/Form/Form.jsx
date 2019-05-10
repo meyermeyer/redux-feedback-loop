@@ -11,6 +11,7 @@ class Form extends Component {
     render() {
         return (
             <>
+                <p>form here</p>
                 <Feeling />
                 <Understanding />
                 <Support />
@@ -23,7 +24,7 @@ class Form extends Component {
 
 const mapReduxStateToProps = (reduxState) => {
     return {
-        itemsInCart: reduxState.cartReducer
+        reduxState
     }
 }
 

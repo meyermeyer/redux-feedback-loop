@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class Feeling extends Component {
-    render () {
+    render() {
         return (
-            <p>Feelings Component Here</p>
+            <h2>Feeling!</h2>
         )
     }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-    return {
-        itemsInCart: reduxState.cartReducer
-    }
-}
-
-export default connect(mapReduxStateToProps)(Feeling);
+export default Feeling;
