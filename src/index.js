@@ -7,9 +7,21 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-const feedbackReducer = (state={}, action) => {
+const initialFeedback = {
+    feeling : 1,
+    understanding: 1,
+    support: 1,
+    comments: 1
+}
+
+const feedbackReducer = (state=initialFeedback, action) => {
     console.log('in feedbackReducer');
-    
+    if (action.type === 'UPDATE_FEEDBACK'){
+        return {
+            ...state,
+            [action.name]: action.payload
+        }
+    }
     return state
 }
 
