@@ -11,7 +11,7 @@ const initialFeedback = {
     feeling : 1,
     understanding: 1,
     support: 1,
-    comments: 1
+    comments: 1,
 }
 
 const feedbackReducer = (state=initialFeedback, action) => {
@@ -24,6 +24,7 @@ const feedbackReducer = (state=initialFeedback, action) => {
     }
     return state
 }
+
 
 
 const storeInstance = createStore(
