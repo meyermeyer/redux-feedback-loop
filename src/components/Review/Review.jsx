@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
 import { connect } from 'react-redux';
+// import { HashRouter as Router, Link, Route } from 'react-router-dom';
+import Success from '../Success/Success'
 
 
 class Review extends Component {
 
     handleClick = () => {
         console.log('in handleClick-review');
-        this.props.history.push('/success');
-
+        this.props.history('/success')
+    
     }
 
     render() {
-        console.log(this.props.isFilled);
+        console.log(this.props.history);
         
         
 
         return (
             <>
+                {/* <Router>
+                    <Route exact path='/success' component={Success} />
+                </Router> */}
+                
                 <h2>Review</h2>
                 <ul>
                     <li>Feeling: {this.props.feedback.feeling}</li>

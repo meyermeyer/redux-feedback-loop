@@ -43,7 +43,8 @@ class Comments extends Component {
                     id="custom-css-outlined-input"
                     onChange={this.handleChange}
                 />
-                <Review isFilled={this.state.isFilled} />
+                <Review isFilled={this.state.isFilled} history={this.props.history}/>
+                
             </>
             
             // <>

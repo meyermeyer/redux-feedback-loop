@@ -9,6 +9,7 @@ import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Success from '../Success/Success';
 
+
 class App extends Component {
   render() {
     return (
@@ -25,8 +26,6 @@ class App extends Component {
           <Route exact path='/support' component={Support} />
           <Route exact path='/comments' component={Comments} />
           <Route exact path='/success' component={Success} />
-          {/* <Form />
-          <Success /> */}
         </Router>
         
       </div>
@@ -35,3 +34,4 @@ class App extends Component {
 }
 
 export default App;
+

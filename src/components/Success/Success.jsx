@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+// import {HashRouter, withRouter} from 'react-router-dom'
 
 class Success extends Component {
     render () {
@@ -9,4 +10,6 @@ class Success extends Component {
     }
 }
 
+
+// export default withRouter(connect()(Success));
 export default connect()(Success);
