@@ -36,9 +36,7 @@ class ScaleSelect extends React.Component {
     handleChange = () => event => {
         console.log('in handleChange')
         this.setState({ scale: event.target.value });
-        this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: 'feeling' })
-        
-
+        this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: this.props.name.toLowerCase() })
     };
 
     render() {
@@ -53,7 +51,7 @@ class ScaleSelect extends React.Component {
                         }}
                         htmlFor="outlined-age-native-simple"
                     >
-                        Feeling
+                        {this.props.name}
                     </InputLabel>
                     <Select
                         native
@@ -83,7 +81,5 @@ class ScaleSelect extends React.Component {
 ScaleSelect.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
-// export default withStyles(connect(styles)(ScaleSelect));
 
 export default connect()(withStyles(styles)(ScaleSelect));

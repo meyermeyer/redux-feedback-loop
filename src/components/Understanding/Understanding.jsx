@@ -2,29 +2,30 @@ import React, { Component } from 'react';
 import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import Review from '../Review/Review'
+import ScaleSelect from '../ScaleSelect/ScaleSelect'
 
 class Understanding extends Component {
     state = {
         isFilled: false
     }
 
-    handleChange = (event) => {
-        console.log('in handleChange');
-        // this.setState ({
-        //     feeling: event.target.value
-        // })
-        this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: 'understanding' })
-        if (!event.target.value) {
-            this.setState({
-                isFilled: false
-            })
-        }
-        else {
-            this.setState({
-                isFilled: true
-            })
-        }
-    } 
+    // handleChange = (event) => {
+    //     console.log('in handleChange');
+    //     // this.setState ({
+    //     //     feeling: event.target.value
+    //     // })
+    //     this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: 'understanding' })
+    //     if (!event.target.value) {
+    //         this.setState({
+    //             isFilled: false
+    //         })
+    //     }
+    //     else {
+    //         this.setState({
+    //             isFilled: true
+    //         })
+    //     }
+    // } 
 
     handleClick = () => {
         console.log('in handleClick-understanding');
@@ -43,7 +44,8 @@ class Understanding extends Component {
                         <Typography variant="h5" component="h2">
                             How well are you understanding today's content?
                         </Typography>
-                        <Typography>
+                        <ScaleSelect name="Understanding"/>
+                        {/* <Typography>
                             <select onChange={this.handleChange} name="understanding">
                                 <option value=""></option>
                                 <option value="1">1</option>
@@ -52,10 +54,10 @@ class Understanding extends Component {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                        </Typography>
+                        </Typography> */}
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
+                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.understanding}>Next</Button>
                     </CardActions>
                 </Card>
                 {/* <h2>Understanding!</h2>
@@ -74,4 +76,10 @@ class Understanding extends Component {
     }
 }
 
-export default connect()(Understanding);
+const mapReduxStateToProps = (reduxState) => {
+    return {
+        reduxState
+    }
+}
+
+export default connect(mapReduxStateToProps)(Understanding);
