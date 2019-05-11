@@ -15,6 +15,7 @@ class Review extends Component {
         axios.post('/feedback', this.props.feedback)
         .then(response => {
             console.log('back from POST /feedback', response);
+            this.props.history.push('/success')
         })//end .then
         .catch(error => {
             console.log('error in POST /feedback', error);

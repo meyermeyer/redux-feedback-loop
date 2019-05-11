@@ -8,17 +8,27 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Success from '../Success/Success';
+import {CardContent, Card, Typography} from '@material-ui/core'
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
+        <Card>
+          <CardContent className="App-header">
+            {/* <header className="App-header"> */}
+            <Typography>
+              <h1 className="App-title">Feedback!</h1>
+              <h4 className="App-header-tag"><i>Don't forget it!</i></h4>
+            </Typography>
+              
+            {/* </header> */}
+          </CardContent>
+        </Card>
+        
           
-        </header>
+        
         <br/>
         <Router>
           <Route exact path='/' component={Feeling} />

@@ -11,6 +11,11 @@
 
 .App-title {
   font-size: 1.5em;
+  color: white;
+}
+
+.App-header-tag {
+  color: white;
 }
 
 .App-intro {
