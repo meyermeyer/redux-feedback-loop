@@ -4,6 +4,7 @@ import Review from '../Review/Review'
 import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import {TextField, MenuItem, FormControl, InputLabel, Select} from '@material-ui/core';
 import './Feeling.css';
+import ScaleSelect from '../ScaleSelect/ScaleSelect'
 
 class Feeling extends Component {
     state = {
@@ -47,7 +48,8 @@ class Feeling extends Component {
                         <Typography variant="h5" component="h2">
                             How are you feeling today?
                         </Typography>
-                        <Typography>
+                            <ScaleSelect />
+                        {/* <Typography>
                             <select onChange={this.handleChange} name="feeling">
                                 <option value=""></option>
                                 <option value="1">1</option>
@@ -56,7 +58,7 @@ class Feeling extends Component {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                        </Typography>
+                        </Typography> */}
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
                         <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>

@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import { withStyles } from '@material-ui/core/styles';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { withStyles, OutlinedInput, InputLabel, FormControl, Select } from '@material-ui/core';
+// import OutlinedInput from '@material-ui/core/OutlinedInput';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
 
 const styles = theme => ({
     root: {
-        display: 'flex',
-        flexWrap: 'wrap',
+        // display: 'flex',
+        // flexWrap: 'wrap',
     },
     formControl: {
         margin: theme.spacing.unit,
@@ -21,10 +21,10 @@ const styles = theme => ({
     },
 });
 
-class NativeSelects extends React.Component {
+class ScaleSelect extends React.Component {
     state = {
         scale: '',
-        
+
     };
 
     componentDidMount() {
@@ -42,15 +42,6 @@ class NativeSelects extends React.Component {
 
         return (
             <div className={classes.root}>
-                
-                
-                
-               
-                
-                
-                
-                
-                
                 <FormControl variant="outlined" className={classes.formControl}>
                     <InputLabel
                         ref={ref => {
@@ -80,52 +71,13 @@ class NativeSelects extends React.Component {
                         <option value={5}>5</option>
                     </Select>
                 </FormControl>
-                
             </div>
         );
     }
 }
 
-NativeSelects.propTypes = {
+ScaleSelect.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NativeSelects);
-
-
-
-//this form actually isn't necessary
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import Feeling from '../Feeling/Feeling';
-// import Understanding from '../Understanding/Understanding';
-// import Support from '../Support/Support';
-// import Comments from '../Comments/Comments';
-// import Success from '../Success/Success'
-// import { HashRouter as Router, Link, Route } from 'react-router-dom';
-
-// class Form extends Component {
-//     render() {
-//         return (
-//             <Router>
-//                 <form>
-                    
-//                     <Feeling />
-//                     <Understanding />
-//                     <Support />
-//                     <Comments />
-//                     <Success />
-//                 </form>
-//             </Router>
-            
-//         )
-//     }
-// }
-
-// const mapReduxStateToProps = (reduxState) => {
-//     return {
-//         reduxState
-//     }
-// }
-
-// export default connect(mapReduxStateToProps)(Form);
+export default withStyles(styles)(ScaleSelect);

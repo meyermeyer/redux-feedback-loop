@@ -28,7 +28,7 @@ class App extends Component {
         </Card>
         
           
-        
+        {/* <Form /> */}
         <br/>
         <Router>
           <Route exact path='/' component={Feeling} />
