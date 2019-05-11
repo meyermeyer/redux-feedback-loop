@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
+import { Button, Card, CardContent, CardActions, Typography, TextField } from '@material-ui/core';
 import Review from '../Review/Review'
 import { withStyles } from '@material-ui/core/styles';
+
 
 class Comments extends Component {
     state = {
@@ -36,13 +38,29 @@ class Comments extends Component {
     render() {
         return (
             <>
-                <h2>Comments!</h2>
+                <Card >
+                    <CardContent>
+                        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
+                        Word of the Day
+                        </Typography> */}
+                        <Typography variant="h5" component="h2">
+                            Please leave comments here:
+                        </Typography>
+                            <TextField
+                                label="Comments"
+                                variant="outlined"
+                                id="custom-css-outlined-input"
+                                onChange={this.handleChange}
+                            />
+                    </CardContent>
+                </Card>
+                {/* <h2>Comments!</h2>
                 <TextField
                     label="Comments"
                     variant="outlined"
                     id="custom-css-outlined-input"
                     onChange={this.handleChange}
-                />
+                /> */}
                 <Review isFilled={this.state.isFilled} history={this.props.history}/>
                 
             </>

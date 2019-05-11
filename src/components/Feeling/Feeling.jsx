@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Checkbox, Button } from '@material-ui/core';
 import {connect} from 'react-redux';
 import Review from '../Review/Review'
+import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import {TextField, MenuItem, FormControl, InputLabel, Select} from '@material-ui/core';
 import './Feeling.css';
 
@@ -39,7 +39,40 @@ class Feeling extends Component {
         
         return (
             <>
-                <h2>How are you feeling today?</h2>
+                <Card >
+                    <CardContent>
+                        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
+                        Word of the Day
+                        </Typography> */}
+                        <Typography variant="h5" component="h2">
+                            How are you feeling today?
+                        </Typography>
+                        <Typography>
+                            <select onChange={this.handleChange} name="feeling">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </Typography>
+                    </CardContent>
+                    <CardActions style={{ justifyContent: 'center' }}>
+                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
+                    </CardActions>
+                </Card>
+                {/* <h2>How are you feeling today?</h2>
+                <select onChange={this.handleChange} name="feeling">
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button> */}
+                <Review />
                 <div>
                     {/* <Checkbox
                     // checked={this.state.checkedA}
@@ -111,16 +144,7 @@ class Feeling extends Component {
                 </TextField> */}
                 </div>
                 
-                <select onChange={this.handleChange} name="feeling">
-                    <option value=""></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
-                <Review />
+                
             </>
         )
     }

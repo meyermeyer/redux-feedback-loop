@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import Review from '../Review/Review'
 
@@ -34,7 +34,30 @@ class Support extends Component {
     render() {
         return (
             <>
-                <h2>Support!</h2>
+                <Card >
+                    <CardContent>
+                        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
+                        Word of the Day
+                        </Typography> */}
+                        <Typography variant="h5" component="h2">
+                            How well are you being supported?
+                        </Typography>
+                        <Typography>
+                            <select onChange={this.handleChange} name="support">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </Typography>
+                    </CardContent>
+                    <CardActions style={{ justifyContent: 'center' }}>
+                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
+                    </CardActions>
+                </Card>
+                {/* <h2>Support!</h2>
                 <select onChange={this.handleChange} name="support">
                     <option value=""></option>
                     <option value="1">1</option>
@@ -43,7 +66,7 @@ class Support extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
+                <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button> */}
                 <Review />
             </>
         )

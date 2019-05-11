@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 // import { HashRouter as Router, Link, Route } from 'react-router-dom';
 import Success from '../Success/Success'
+import {withRouter} from 'react-router-dom'
 
 
 class Review extends Component {
 
     handleClick = () => {
         console.log('in handleClick-review');
-        // this.props.history('/success')
+        
         axios.post('/feedback', this.props.feedback)
         .then(response => {
             console.log('back from POST /feedback', response);
@@ -71,5 +72,5 @@ const mapReduxStateToProps = (reduxState) => {
         feedback : reduxState.feedbackReducer
     }
 }
-
-export default connect(mapReduxStateToProps)(Review);
+// export default withRouter(connect(mapRedux)(Review))
+export default withRouter(connect(mapReduxStateToProps)(Review));
