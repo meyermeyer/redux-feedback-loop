@@ -5,9 +5,9 @@ import Review from '../Review/Review'
 import ScaleSelect from '../ScaleSelect/ScaleSelect'
 
 class Understanding extends Component {
-    state = {
-        isFilled: false
-    }
+    // state = {
+    //     isFilled: false
+    // }
 
     // handleChange = (event) => {
     //     console.log('in handleChange');
@@ -44,7 +44,7 @@ class Understanding extends Component {
                         <Typography variant="h5" component="h2">
                             How well are you understanding today's content?
                         </Typography>
-                        <ScaleSelect name="Understanding"/>
+                        <ScaleSelect name='Understanding'/>
                         {/* <Typography>
                             <select onChange={this.handleChange} name="understanding">
                                 <option value=""></option>
@@ -60,16 +60,6 @@ class Understanding extends Component {
                         <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.understanding}>Next</Button>
                     </CardActions>
                 </Card>
-                {/* <h2>Understanding!</h2>
-                <select onChange={this.handleChange} name="understanding">
-                    <option value=""></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button> */}
                 <Review />
             </>
         )

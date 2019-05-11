@@ -7,9 +7,9 @@ import './Feeling.css';
 import ScaleSelect from '../ScaleSelect/ScaleSelect'
 
 class Feeling extends Component {
-    state = {
-        isFilled: false
-    }
+    // state = {
+    //     isFilled: false
+    // }
 
     // handleChange = (event) => {
     //     console.log('in handleChange');
@@ -36,7 +36,7 @@ class Feeling extends Component {
     }
 
     render() {
-        console.log(this.state.isFilled);
+        // console.log(this.state.isFilled);
         
         return (
             <>
