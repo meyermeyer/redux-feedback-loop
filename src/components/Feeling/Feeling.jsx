@@ -61,7 +61,7 @@ class Feeling extends Component {
                         </Typography> */}
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
+                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.feeling}>Next</Button>
                     </CardActions>
                 </Card>
                 {/* <h2>How are you feeling today?</h2>
@@ -152,4 +152,11 @@ class Feeling extends Component {
     }
 }
 
-export default connect()(Feeling);
+const mapReduxStateToProps = (reduxState) => {
+    return {
+        reduxState
+    }
+}
+
+
+export default connect(mapReduxStateToProps)(Feeling);

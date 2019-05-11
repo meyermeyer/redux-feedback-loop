@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { withStyles, OutlinedInput, InputLabel, FormControl, Select } from '@material-ui/core';
+import { connect } from 'react-redux'
 // import OutlinedInput from '@material-ui/core/OutlinedInput';
 // import InputLabel from '@material-ui/core/InputLabel';
 // import FormControl from '@material-ui/core/FormControl';
@@ -24,7 +25,6 @@ const styles = theme => ({
 class ScaleSelect extends React.Component {
     state = {
         scale: '',
-
     };
 
     componentDidMount() {
@@ -34,7 +34,11 @@ class ScaleSelect extends React.Component {
     }
 
     handleChange = () => event => {
+        console.log('in handleChange')
         this.setState({ scale: event.target.value });
+        this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: 'feeling' })
+        
+
     };
 
     render() {
@@ -80,4 +84,6 @@ ScaleSelect.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ScaleSelect);
+// export default withStyles(connect(styles)(ScaleSelect));
+
+export default connect()(withStyles(styles)(ScaleSelect));
