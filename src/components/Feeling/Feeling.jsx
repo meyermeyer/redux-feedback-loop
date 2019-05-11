@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Checkbox, Button } from '@material-ui/core';
 import {connect} from 'react-redux';
+import Review from '../Review/Review'
 import {TextField, MenuItem, FormControl, InputLabel, Select} from '@material-ui/core';
 import './Feeling.css';
 
 class Feeling extends Component {
-    // state = {
-    //     feeling: 1
-    // }
+    state = {
+        isFilled: false
+    }
 
     handleChange = (event) => {
         console.log('in handleChange');
@@ -15,14 +16,32 @@ class Feeling extends Component {
         //     feeling: event.target.value
         // })
         this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: 'feeling' })
+        if (!event.target.value) {
+            this.setState ({
+                isFilled: false
+            })
+        }
+        else {
+            this.setState ({
+                isFilled: true
+            })
+        }
     }
+
+    handleClick = () => {
+        console.log('in handleClick-feeling');
+        this.props.history.push('/understanding');
+        
+    }
+
     render() {
-        // console.log(this.state.feeling);
+        console.log(this.state.isFilled);
         
         return (
             <>
                 <h2>How are you feeling today?</h2>
-                {/* <Checkbox
+                <div>
+                    {/* <Checkbox
                     // checked={this.state.checkedA}
                     // onChange={this.handleChange('checkedA')}
                     // value="checkedA"
@@ -46,9 +65,9 @@ class Feeling extends Component {
                 // checked={this.state.checkedA}
                 // onChange={this.handleChange('checkedA')}
                 // value="checkedA"
-                // /> */} 
-                {/* this checkbox thing will be a stretch */}
-                {/* <FormControl>
+                // /> */}
+                    {/* this checkbox thing will be a stretch */}
+                    {/* <FormControl>
                     <InputLabel htmlFor="age-native-simple">Feeling</InputLabel>
                     <Select
                         native
@@ -67,7 +86,7 @@ class Feeling extends Component {
                         <option value={5}>5</option>
                     </Select>
                 </FormControl> */}
-                {/* <TextField
+                    {/* <TextField
                     id="feelingInput"
                     select
                     label="Select"
@@ -90,6 +109,8 @@ class Feeling extends Component {
 
                     ))}
                 </TextField> */}
+                </div>
+                
                 <select onChange={this.handleChange} name="feeling">
                     <option value=""></option>
                     <option value="1">1</option>
@@ -98,7 +119,8 @@ class Feeling extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <Button onClick={this.handleClick} variant="contained" color="primary">Next</Button>
+                <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.state.isFilled}>Next</Button>
+                <Review />
             </>
         )
     }

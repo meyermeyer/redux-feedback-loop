@@ -6,12 +6,13 @@ import registerServiceWorker from './registerServiceWorker';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { hashHistory } from 'react-router';
 
 const initialFeedback = {
-    feeling : 1,
-    understanding: 1,
-    support: 1,
-    comments: 1,
+    feeling : '',
+    understanding : '',
+    support: '',
+    comments : ''
 }
 
 const feedbackReducer = (state=initialFeedback, action) => {
