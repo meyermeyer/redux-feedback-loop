@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Review from '../Review/Review'
+import { withStyles } from '@material-ui/core/styles';
 
 class Comments extends Component {
     state = {
@@ -18,7 +19,7 @@ class Comments extends Component {
     }
 
     checkIsFilled = () => {
-        if (this.props.feedback.comments=="") {
+        if (!this.props.feedback.comments || !this.props.feedback.feeling || !this.props.feedback.understanding || !this.props.feedback.support) {
             this.setState({
                 isFilled: false
             })

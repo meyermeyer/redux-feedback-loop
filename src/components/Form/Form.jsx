@@ -14,7 +14,7 @@ class Form extends Component {
                 <Understanding />
                 <Support />
                 <Comments />
-                <Review />
+                {/* <Review /> */}
                 
             </form>
         )

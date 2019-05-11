@@ -16,6 +16,7 @@ class Support extends Component {
             <>
                 <h2>Support!</h2>
                 <select onChange={this.handleChange} name="support">
+                    <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
