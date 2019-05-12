@@ -75,13 +75,13 @@ class Review extends Component {
                         Review Your Feedback
                         </Typography>
                         <Typography>
-                            Feeling: <span class="satisfactionIcons">{this.setIconToDisplay('feeling')}</span>
+                            Feeling: {this.setIconToDisplay('feeling')}
                         </Typography>
                         <Typography component="p">
-                        Understanding: {this.props.feedback.understanding}
+                            Understanding: {this.setIconToDisplay('understanding')}
                         </Typography>
                         <Typography>
-                            Support: {this.props.feedback.support}
+                            Support: {this.setIconToDisplay('support')}
                         </Typography>
                         <Typography>
                             Comments: {this.props.feedback.comments}
@@ -91,14 +91,6 @@ class Review extends Component {
                         <Button onClick={this.handleClick} variant="contained" color="secondary" disabled={!this.props.isFilled}>Submit</Button>
                     </CardActions>
                     </Card>
-                {/* <h2>Review</h2>
-                <ul>
-                    <li>Feeling: {this.props.feedback.feeling}</li>
-                    <li>Understanding: {this.props.feedback.understanding}</li>
-                    <li>Support: {this.props.feedback.support}</li>
-                    <li>Comments: {this.props.feedback.comments}</li>
-                </ul>
-                <Button onClick={this.handleClick} variant="contained" color="secondary" disabled={!this.props.isFilled}>Submit</Button> */}
             </div>
         )
     }
