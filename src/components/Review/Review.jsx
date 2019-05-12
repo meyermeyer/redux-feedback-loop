@@ -8,6 +8,9 @@ import './Review.css'
 
 
 class Review extends Component {
+    componentDidMount () {
+        this.setIconToDisplay();
+    }
 
     handleClick = () => {
         console.log('in handleClick-review');
@@ -22,8 +25,41 @@ class Review extends Component {
         })//end .catch
     };// end handleClick
 
+    setIconToDisplay = (formName) => {
+        let expression = this.props.feedback[formName];
+        console.log(expression);
+        if (expression == 1) {
+            return <i class="material-icons satisfactionIcons">sentiment_very_dissatisfied_black_72x72</i>
+        }
+        else if (expression ==2 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_dissatisfied_black_72x72</i>
+        }
+        else if (expression == 3 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_neutral_72x72</i>
+        }
+        else if (expression == 4 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_satisfied_black_72x72</i>
+        }
+        else if (expression == 5 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_very_satisfied_black_72x72</i>
+        }
+        else {
+            return ''
+        }
+        
+        
+        
+    }
+
+    testFunction = () => {
+        return 4
+    }
+
     render() {
         console.log(this.props.feedback);
+        console.log(this.props.feedback.feeling);
+        
+        
         
         return (
             <div>
@@ -39,7 +75,7 @@ class Review extends Component {
                         Review Your Feedback
                         </Typography>
                         <Typography>
-                        Feeling: {this.props.feedback.feeling}
+                            Feeling: <span class="satisfactionIcons">{this.setIconToDisplay('feeling')}</span>
                         </Typography>
                         <Typography component="p">
                         Understanding: {this.props.feedback.understanding}
