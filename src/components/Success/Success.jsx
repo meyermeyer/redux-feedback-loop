@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Button} from '@material-ui/core'
+import {Button} from '@material-ui/core';
+import './Success.css'
+
 // import {HashRouter, withRouter} from 'react-router-dom'
 
 class Success extends Component {
@@ -11,6 +13,7 @@ class Success extends Component {
     render () {
         return(
             <>
+                <p><i class="material-icons" id="check-circle" >check_circle_black_72x72</i></p>
                 <h2>Success!</h2>
 
                 <Button onClick={this.handleClick} variant="contained" color="secondary">Leave New Feedback</Button>

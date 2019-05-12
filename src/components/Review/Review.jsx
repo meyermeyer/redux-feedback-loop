@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Button, Card, CardContent, CardActions, Typography  } from '@material-ui/core';
 import { connect } from 'react-redux';
 import axios from 'axios';
-// import { HashRouter as Router, Link, Route } from 'react-router-dom';
-import Success from '../Success/Success'
 import {withRouter} from 'react-router-dom'
+import './Review.css'
+
 
 
 class Review extends Component {
@@ -26,7 +26,7 @@ class Review extends Component {
         console.log(this.props.feedback);
         
         return (
-            <>
+            <div>
                 {/* <Router>
                     <Route exact path='/success' component={Success} />
                 </Router> */}
@@ -63,7 +63,7 @@ class Review extends Component {
                     <li>Comments: {this.props.feedback.comments}</li>
                 </ul>
                 <Button onClick={this.handleClick} variant="contained" color="secondary" disabled={!this.props.isFilled}>Submit</Button> */}
-            </>
+            </div>
         )
     }
 }
