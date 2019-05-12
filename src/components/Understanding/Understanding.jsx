@@ -1,31 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
-import Review from '../Review/Review'
-import ScaleSelect from '../ScaleSelect/ScaleSelect'
+import Review from '../Review/Review';
+// import ScaleSelect from '../ScaleSelect/ScaleSelect'
+import RadioSelect from '../RadioSelect/RadioSelect';
+import './Understanding.css'
 
 class Understanding extends Component {
-    // state = {
-    //     isFilled: false
-    // }
-
-    // handleChange = (event) => {
-    //     console.log('in handleChange');
-    //     // this.setState ({
-    //     //     feeling: event.target.value
-    //     // })
-    //     this.props.dispatch({ type: 'UPDATE_FEEDBACK', payload: event.target.value, name: 'understanding' })
-    //     if (!event.target.value) {
-    //         this.setState({
-    //             isFilled: false
-    //         })
-    //     }
-    //     else {
-    //         this.setState({
-    //             isFilled: true
-    //         })
-    //     }
-    // } 
+    
 
     handleClick = () => {
         console.log('in handleClick-understanding');
@@ -44,7 +26,8 @@ class Understanding extends Component {
                         <Typography variant="h5" component="h2">
                             How well are you understanding today's content?
                         </Typography>
-                        <ScaleSelect name='Understanding'/>
+                        {/* <ScaleSelect name='Understanding'/> */}
+                        <RadioSelect name='Understanding' />
                         {/* <Typography>
                             <select onChange={this.handleChange} name="understanding">
                                 <option value=""></option>
@@ -57,9 +40,14 @@ class Understanding extends Component {
                         </Typography> */}
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.understanding}>Next</Button>
+                        <Button onClick={this.handleClick} 
+                            variant="contained" color="primary" 
+                            disabled={!this.props.reduxState.feedbackReducer.understanding}
+                            >Next<i class="material-icons" id="next-icon" >skip_next_black_72x72</i>
+                        </Button>
                     </CardActions>
                 </Card>
+                <br/>
                 <Review />
             </>
         )

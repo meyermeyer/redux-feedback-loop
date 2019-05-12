@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { hashHistory } from 'react-router';
+
 
 const initialFeedback = {
     feeling : '',
@@ -22,6 +22,9 @@ const feedbackReducer = (state=initialFeedback, action) => {
             ...state,
             [action.name]: action.payload
         }
+    }
+    else if (action.type === 'CLEAR_FEEDBACK') {
+        return initialFeedback
     }
     return state
 }

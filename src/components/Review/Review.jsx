@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Button, Card, CardContent, CardActions, Typography  } from '@material-ui/core';
 import { connect } from 'react-redux';
 import axios from 'axios';
-// import { HashRouter as Router, Link, Route } from 'react-router-dom';
-import Success from '../Success/Success'
 import {withRouter} from 'react-router-dom'
+import './Review.css'
+
 
 
 class Review extends Component {
+    componentDidMount () {
+        this.setIconToDisplay();
+    }
 
     handleClick = () => {
         console.log('in handleClick-review');
@@ -22,11 +25,44 @@ class Review extends Component {
         })//end .catch
     };// end handleClick
 
+    setIconToDisplay = (formName) => {
+        let expression = this.props.feedback[formName];
+        console.log(expression);
+        if (expression == 1) {
+            return <i class="material-icons satisfactionIcons">sentiment_very_dissatisfied_black_72x72</i>
+        }
+        else if (expression ==2 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_dissatisfied_black_72x72</i>
+        }
+        else if (expression == 3 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_neutral_72x72</i>
+        }
+        else if (expression == 4 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_satisfied_black_72x72</i>
+        }
+        else if (expression == 5 ) {
+            return <i class="material-icons satisfactionIcons">sentiment_very_satisfied_black_72x72</i>
+        }
+        else {
+            return ''
+        }
+        
+        
+        
+    }
+
+    testFunction = () => {
+        return 4
+    }
+
     render() {
         console.log(this.props.feedback);
+        console.log(this.props.feedback.feeling);
+        
+        
         
         return (
-            <>
+            <div>
                 {/* <Router>
                     <Route exact path='/success' component={Success} />
                 </Router> */}
@@ -39,13 +75,13 @@ class Review extends Component {
                         Review Your Feedback
                         </Typography>
                         <Typography>
-                        Feeling: {this.props.feedback.feeling}
+                            Feeling: {this.setIconToDisplay('feeling')}
                         </Typography>
                         <Typography component="p">
-                        Understanding: {this.props.feedback.understanding}
+                            Understanding: {this.setIconToDisplay('understanding')}
                         </Typography>
                         <Typography>
-                            Support: {this.props.feedback.support}
+                            Support: {this.setIconToDisplay('support')}
                         </Typography>
                         <Typography>
                             Comments: {this.props.feedback.comments}
@@ -55,15 +91,7 @@ class Review extends Component {
                         <Button onClick={this.handleClick} variant="contained" color="secondary" disabled={!this.props.isFilled}>Submit</Button>
                     </CardActions>
                     </Card>
-                {/* <h2>Review</h2>
-                <ul>
-                    <li>Feeling: {this.props.feedback.feeling}</li>
-                    <li>Understanding: {this.props.feedback.understanding}</li>
-                    <li>Support: {this.props.feedback.support}</li>
-                    <li>Comments: {this.props.feedback.comments}</li>
-                </ul>
-                <Button onClick={this.handleClick} variant="contained" color="secondary" disabled={!this.props.isFilled}>Submit</Button> */}
-            </>
+            </div>
         )
     }
 }

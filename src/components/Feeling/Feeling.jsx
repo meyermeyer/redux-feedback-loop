@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Review from '../Review/Review'
 import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
-import {TextField, MenuItem, FormControl, InputLabel, Select} from '@material-ui/core';
 import './Feeling.css';
-import ScaleSelect from '../ScaleSelect/ScaleSelect'
+// import ScaleSelect from '../ScaleSelect/ScaleSelect'
+import RadioSelect from '../RadioSelect/RadioSelect'
+
 
 class Feeling extends Component {
     // state = {
@@ -49,7 +50,8 @@ class Feeling extends Component {
                             How are you feeling today?
                         </Typography>
                             {/* pass name and placeholder to ScaleSelect so select displays right placeholder and dispatches correct key to feedbackReducer */}
-                            <ScaleSelect name='Feeling'/>
+                        {/* <ScaleSelect name='Feeling'/> */}
+                        <RadioSelect name='Feeling' />
                         {/* <Typography>
                             <select onChange={this.handleChange} name="feeling">
                                 <option value=""></option>
@@ -62,10 +64,10 @@ class Feeling extends Component {
                         </Typography> */}
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.feeling}>Next</Button>
+                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.feeling}>Next<i class="material-icons" id="next-icon" >skip_next_black_72x72</i></Button>
                     </CardActions>
                 </Card>
-                
+                <br/>
                 <Review />
                 <div>
                     {/* <Checkbox
