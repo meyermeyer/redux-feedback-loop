@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Review from '../Review/Review'
 import { Button, Card, CardContent, CardActions, Typography } from '@material-ui/core';
 import './Feeling.css';
-import ScaleSelect from '../ScaleSelect/ScaleSelect'
+// import ScaleSelect from '../ScaleSelect/ScaleSelect'
 import RadioSelect from '../RadioSelect/RadioSelect'
 
 
@@ -64,7 +64,7 @@ class Feeling extends Component {
                         </Typography> */}
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.feeling}>Next</Button>
+                        <Button onClick={this.handleClick} variant="contained" color="primary" disabled={!this.props.reduxState.feedbackReducer.feeling}>Next<i class="material-icons" id="next-icon" >skip_next_black_72x72</i></Button>
                     </CardActions>
                 </Card>
                 <br/>
