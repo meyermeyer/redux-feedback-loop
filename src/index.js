@@ -23,6 +23,9 @@ const feedbackReducer = (state=initialFeedback, action) => {
             [action.name]: action.payload
         }
     }
+    else if (action.type === 'CLEAR_FEEDBACK') {
+        return initialFeedback
+    }
     return state
 }
 
